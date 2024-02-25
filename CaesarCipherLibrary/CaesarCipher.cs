@@ -8,7 +8,6 @@ namespace CaesarCipherLibrary
 {
     public class CaesarCipher
     {
-        // переписать класс, проблемы с ключем при дешифрование.
         public string EncryptedText { get; set; }
         public int key {  get; set; }
         public string expandedText {  get; set; }  

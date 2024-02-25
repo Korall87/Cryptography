@@ -9,7 +9,7 @@ namespace Test
         {
             var ceasarCipher = new CaesarCipher();
 
-            int shift = 1;
+            int shift = 5;
             string originalText = "аАяЯ. Привет, как дела?";
 
             ceasarCipher.Encrypt(originalText, shift);

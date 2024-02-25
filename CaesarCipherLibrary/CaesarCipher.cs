@@ -8,14 +8,20 @@ namespace CaesarCipherLibrary
 {
     public class CaesarCipher
     {
-        public string EncryptedText {  get; set; }
-        public int key { get; set; }
-        public string expandedText { get; set; }       
+        // переписать класс, проблемы с ключем при дешифрование.
+        public string EncryptedText { get; set; }
+        public int key {  get; set; }
+        public string expandedText {  get; set; }  
+        public string decryptedText { get; set; }
+
 
         public string Encrypt(string input, int shift)
         {
-            EncryptedText = input;
-            key = shift;
+            if (EncryptedText == null && key == 0)
+            {
+                EncryptedText = input;
+                key = shift;
+            }
 
             StringBuilder encryptedText = new StringBuilder();
 
@@ -38,26 +44,25 @@ namespace CaesarCipherLibrary
                 }
             }
 
-            expandedText = encryptedText.ToString();
-            return expandedText;
-        }
+            if (expandedText == null)
+            {
+                expandedText = encryptedText.ToString();
+            } 
+            
+            return encryptedText.ToString();
+        }      
 
         public string Decipher()
         {
-            return Encrypt(expandedText, -key);
+            return decryptedText = Encrypt(expandedText, -key);
         }
 
         
         public void Decryption()// переписать нормально, должен что-то возвращять
         {
-            string Decipher(int i)
-            {
-                return Encrypt(expandedText, i);
-            }
-
             for (int i = 1; i < 33; i++)
             {
-                Console.WriteLine($"key = {i} : {Decipher(i)}");
+                Console.WriteLine($"key = {i} : {Encrypt(expandedText, -i)}");
             }
         }
     }

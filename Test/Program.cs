@@ -1,5 +1,5 @@
 ﻿using System;
-using CaesarCipherLibrary;
+using CryptographyLibrary;
 
 namespace Test
 {

@@ -5,9 +5,9 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfCryptography", "WpfCryptography\WpfCryptography.csproj", "{69DC6814-CDCB-43F4-AD48-DC405972FC94}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptographyLibrary", "CaesarCipherLibrary\CryptographyLibrary.csproj", "{FDC4CFDC-CE19-4FA3-9D11-229C8A58E0DF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{13234A35-374B-4DD1-9446-ED86F27880EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptographyLibrary", "CryptographyLibrary\CryptographyLibrary.csproj", "{834E3DF8-5038-48DB-ADE3-C203B2E3B4C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{69DC6814-CDCB-43F4-AD48-DC405972FC94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69DC6814-CDCB-43F4-AD48-DC405972FC94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69DC6814-CDCB-43F4-AD48-DC405972FC94}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FDC4CFDC-CE19-4FA3-9D11-229C8A58E0DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FDC4CFDC-CE19-4FA3-9D11-229C8A58E0DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FDC4CFDC-CE19-4FA3-9D11-229C8A58E0DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FDC4CFDC-CE19-4FA3-9D11-229C8A58E0DF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{13234A35-374B-4DD1-9446-ED86F27880EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{13234A35-374B-4DD1-9446-ED86F27880EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13234A35-374B-4DD1-9446-ED86F27880EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13234A35-374B-4DD1-9446-ED86F27880EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{834E3DF8-5038-48DB-ADE3-C203B2E3B4C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{834E3DF8-5038-48DB-ADE3-C203B2E3B4C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{834E3DF8-5038-48DB-ADE3-C203B2E3B4C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{834E3DF8-5038-48DB-ADE3-C203B2E3B4C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

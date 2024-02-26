@@ -10,8 +10,8 @@ namespace CryptographyLibrary
     public class CaesarCipher
     {
         public string EncryptedText { get; set; }
-        public int key {  get; set; }
-        public string expandedText {  get; set; }  
+        public int key { get; set; }
+        public string expandedText { get; set; }  
         public string decryptedText { get; set; }
 
         // тут что-то должно быть еще 

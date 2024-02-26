@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfCryptography", "WpfCryptography\WpfCryptography.csproj", "{69DC6814-CDCB-43F4-AD48-DC405972FC94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfCryptography", "WpfCryptography\WpfCryptography.csproj", "{69DC6814-CDCB-43F4-AD48-DC405972FC94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaesarCipherLibrary", "CaesarCipherLibrary\CaesarCipherLibrary.csproj", "{FDC4CFDC-CE19-4FA3-9D11-229C8A58E0DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptographyLibrary", "CaesarCipherLibrary\CryptographyLibrary.csproj", "{FDC4CFDC-CE19-4FA3-9D11-229C8A58E0DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{13234A35-374B-4DD1-9446-ED86F27880EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{13234A35-374B-4DD1-9446-ED86F27880EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

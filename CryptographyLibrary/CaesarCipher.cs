@@ -45,7 +45,7 @@ namespace CryptographyLibrary
                 if (char.IsLetter(c))
                 {
                     //Unicode, диапазон от 1072 до 1103 символы русского алфавита в нижнем регистре,
-                    //а диапазон от 1040 до 1071 символы русского алфавита в верхнем регистре.
+                    //         диапазон от 1040 до 1071 символы русского алфавита в ВЕРХНЕМ регистре.
                     // источник https://symbl.cc/ru/unicode/table/#cyrillic
                     int offset = char.IsLower(c) ? 1072 : 1040;
 

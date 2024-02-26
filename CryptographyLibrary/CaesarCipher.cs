@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,15 +14,30 @@ namespace CryptographyLibrary
         public string expandedText {  get; set; }  
         public string decryptedText { get; set; }
 
+        // тут что-то должно быть еще 
 
         public string Encrypt(string input, int shift)
         {
-            if (EncryptedText == null && key == 0)
+            EncryptedText = input;
+            key = shift;                     
+            return expandedText = caesarEncryptionAlgorithm(EncryptedText, key);
+
+        }      
+
+        public string Decipher()
+            => decryptedText = caesarEncryptionAlgorithm(expandedText, -key);     
+
+        public void Decryption()// переписать нормально, должен что-то возвращять
+        {
+            for (int i = 1; i < 33; i++)
             {
-                EncryptedText = input;
-                key = shift;
+                Console.WriteLine($"key = {i} : {caesarEncryptionAlgorithm(expandedText, -i)}");
             }
 
+        }
+
+        private string caesarEncryptionAlgorithm(string input, int shift)
+        {
             StringBuilder encryptedText = new StringBuilder();
 
             foreach (char c in input)
@@ -42,27 +58,8 @@ namespace CryptographyLibrary
                     encryptedText.Append(c);
                 }
             }
-
-            if (expandedText == null)
-            {
-                expandedText = encryptedText.ToString();
-            } 
-            
             return encryptedText.ToString();
-        }      
 
-        public string Decipher()
-        {
-            return decryptedText = Encrypt(expandedText, -key);
-        }
-
-        
-        public void Decryption()// переписать нормально, должен что-то возвращять
-        {
-            for (int i = 1; i < 33; i++)
-            {
-                Console.WriteLine($"key = {i} : {Encrypt(expandedText, -i)}");
-            }
         }
     }
 }

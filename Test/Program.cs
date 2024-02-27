@@ -1,7 +1,7 @@
 ﻿using System;
 using CryptographyLibrary;
 
-namespace Test
+namespace ConsoleTestLibrary
 {
     internal class Program
     {

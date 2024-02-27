@@ -10,11 +10,11 @@ namespace ConsoleTestLibrary
             var ceasarCipher = new CaesarCipher();
 
             int shift = 5;
-            string originalText = "аАяЯ. Привет, как дела?";
+            string originalText = "Привет, как дела?";
 
-            ceasarCipher.Encrypt(originalText, shift);
-          
-            Console.WriteLine($"Текст: {ceasarCipher.EncryptedText}");                    
+            ceasarCipher.Encrypt(originalText, shift);    
+            Console.WriteLine($"Текст: {ceasarCipher.EncryptedText}"); 
+            
             Console.WriteLine($"Зашифрованный текст: {ceasarCipher.expandedText}");
             Console.WriteLine($"Расшифрованный текст: {ceasarCipher.Decipher()}");
 
@@ -23,6 +23,8 @@ namespace ConsoleTestLibrary
             {
                 Console.WriteLine(item);
             }
+
+            Console.WriteLine($"Значение хи-квадрат {CaesarCipherAnalysis.ChiSquaredTest(ceasarCipher.EncryptedText)}");
 
             Console.ReadLine();
         }

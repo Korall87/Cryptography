@@ -19,12 +19,10 @@ namespace Test
             Console.WriteLine($"Расшифрованный текст: {ceasarCipher.Decipher()}");
 
             ceasarCipher.Decryption();
-
             foreach (var item in ceasarCipher.decryptionArr)
             {
                 Console.WriteLine(item);
             }
-
 
             Console.ReadLine();
         }

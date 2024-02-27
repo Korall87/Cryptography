@@ -5,11 +5,11 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfCryptography", "WpfCryptography\WpfCryptography.csproj", "{69DC6814-CDCB-43F4-AD48-DC405972FC94}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTestLibrary", "Test\ConsoleTestLibrary.csproj", "{13234A35-374B-4DD1-9446-ED86F27880EA}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptographyLibrary", "CryptographyLibrary\CryptographyLibrary.csproj", "{834E3DF8-5038-48DB-ADE3-C203B2E3B4C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLibrary", "TestLibrary\TestLibrary.csproj", "{4D589E29-E2EE-4017-BC77-DAA1D3BF9DE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLibrary", "TestLibrary\TestLibrary.csproj", "{4D589E29-E2EE-4017-BC77-DAA1D3BF9DE9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTestLibrary", "ConsoleTestLibrary\ConsoleTestLibrary.csproj", "{B3C2D810-3B82-4F56-9E38-13DA2A98F33F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{69DC6814-CDCB-43F4-AD48-DC405972FC94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69DC6814-CDCB-43F4-AD48-DC405972FC94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69DC6814-CDCB-43F4-AD48-DC405972FC94}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13234A35-374B-4DD1-9446-ED86F27880EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13234A35-374B-4DD1-9446-ED86F27880EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13234A35-374B-4DD1-9446-ED86F27880EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13234A35-374B-4DD1-9446-ED86F27880EA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{834E3DF8-5038-48DB-ADE3-C203B2E3B4C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{834E3DF8-5038-48DB-ADE3-C203B2E3B4C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{834E3DF8-5038-48DB-ADE3-C203B2E3B4C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{4D589E29-E2EE-4017-BC77-DAA1D3BF9DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D589E29-E2EE-4017-BC77-DAA1D3BF9DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D589E29-E2EE-4017-BC77-DAA1D3BF9DE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3C2D810-3B82-4F56-9E38-13DA2A98F33F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3C2D810-3B82-4F56-9E38-13DA2A98F33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3C2D810-3B82-4F56-9E38-13DA2A98F33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3C2D810-3B82-4F56-9E38-13DA2A98F33F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

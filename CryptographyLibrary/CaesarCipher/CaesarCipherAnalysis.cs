@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CryptographyLibrary
+namespace CryptographyLibrary.CaesarCipher
 {
     public static class CaesarCipherAnalysis
     {
@@ -16,7 +16,7 @@ namespace CryptographyLibrary
 
             foreach (char letter in alphabet)
             {
-                double count = text.Count(c => Char.ToLower(c) == letter);
+                double count = text.Count(c => char.ToLower(c) == letter);
                 letterFrequencies[letter] = count / text.Length;
             }
 

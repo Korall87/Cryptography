@@ -5,13 +5,13 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CryptographyLibrary
+namespace CryptographyLibrary.CaesarCipher
 {
     public class CaesarCipher
     {
         public string EncryptedText { get; set; }
         public int key { get; set; }
-        public string expandedText { get; set; }  
+        public string expandedText { get; set; }
         public string decryptedText { get; set; }
         public string[] decryptionArr { get; set; }
 
@@ -20,14 +20,14 @@ namespace CryptographyLibrary
             EncryptedText = input; // проверить текст в кодировке юникод, 1040 до 1103, ?еще знаки припинания пробел?
             key = shift; // проверка на int               
             return expandedText = caesarEncryptionAlgorithm(EncryptedText, key);
-           
-        }      
+
+        }
 
         public string Decipher()
         {
-           return  decryptedText = caesarEncryptionAlgorithm(expandedText, -key);
+            return decryptedText = caesarEncryptionAlgorithm(expandedText, -key);
 
-        }  
+        }
 
         public string[] Decryption()// переписать нормально, должен что-то возвращять
         {
@@ -35,10 +35,10 @@ namespace CryptographyLibrary
 
             for (int i = 0; i < 32; i++)
             {
-                result[i] = $"key = {i+1} : {caesarEncryptionAlgorithm(expandedText, -(i+1))}";
+                result[i] = $"key = {i + 1} : {caesarEncryptionAlgorithm(expandedText, -(i + 1))}";
             }
             return decryptionArr = result;
-        }      
+        }
 
         private string caesarEncryptionAlgorithm(string input, int shift)
         {

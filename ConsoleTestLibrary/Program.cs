@@ -1,5 +1,5 @@
 ﻿using System;
-using CryptographyLibrary;
+using CryptographyLibrary.CaesarCipher;
 
 namespace ConsoleTestLibrary
 {
@@ -10,7 +10,7 @@ namespace ConsoleTestLibrary
             var ceasarCipher = new CaesarCipher();
 
             int shift = 5;
-            string originalText = "Привет, как дела";
+            string originalText = "Привет, как дела?";
 
             ceasarCipher.Encrypt(originalText, shift);    
             Console.WriteLine($"Текст: {ceasarCipher.EncryptedText}"); 

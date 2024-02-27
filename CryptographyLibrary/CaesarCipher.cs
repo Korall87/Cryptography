@@ -13,28 +13,32 @@ namespace CryptographyLibrary
         public int key { get; set; }
         public string expandedText { get; set; }  
         public string decryptedText { get; set; }
-
-        // тут что-то должно быть еще 
+        public string[] decryptionArr { get; set; }
 
         public string Encrypt(string input, int shift)
         {
-            EncryptedText = input;
-            key = shift;                     
+            EncryptedText = input; // проверить текст в кодировке юникод, 1040 до 1103, ?еще знаки припинания пробел?
+            key = shift; // проверка на int               
             return expandedText = caesarEncryptionAlgorithm(EncryptedText, key);
-
+           
         }      
 
         public string Decipher()
-            => decryptedText = caesarEncryptionAlgorithm(expandedText, -key);     
-
-        public void Decryption()// переписать нормально, должен что-то возвращять
         {
-            for (int i = 1; i < 33; i++)
-            {
-                Console.WriteLine($"key = {i} : {caesarEncryptionAlgorithm(expandedText, -i)}");
-            }
+           return  decryptedText = caesarEncryptionAlgorithm(expandedText, -key);
 
-        }
+        }  
+
+        public string[] Decryption()// переписать нормально, должен что-то возвращять
+        {
+            string[] result = new string[33];
+
+            for (int i = 0; i < 32; i++)
+            {
+                result[i] = $"key = {i+1} : {caesarEncryptionAlgorithm(expandedText, -(i+1))}";
+            }
+            return decryptionArr = result;
+        }      
 
         private string caesarEncryptionAlgorithm(string input, int shift)
         {

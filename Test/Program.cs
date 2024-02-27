@@ -17,7 +17,13 @@ namespace Test
             Console.WriteLine($"Текст: {ceasarCipher.EncryptedText}");                    
             Console.WriteLine($"Зашифрованный текст: {ceasarCipher.expandedText}");
             Console.WriteLine($"Расшифрованный текст: {ceasarCipher.Decipher()}");
+
             ceasarCipher.Decryption();
+
+            foreach (var item in ceasarCipher.decryptionArr)
+            {
+                Console.WriteLine(item);
+            }
 
 
             Console.ReadLine();

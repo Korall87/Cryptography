@@ -31,7 +31,7 @@ namespace CryptographyLibrary
 
         public string[] Decryption()// переписать нормально, должен что-то возвращять
         {
-            string[] result = new string[33];
+            string[] result = new string[32];
 
             for (int i = 0; i < 32; i++)
             {

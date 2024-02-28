@@ -44,7 +44,7 @@ namespace CryptographyLibrary.CaesarCipher
 
         }
 
-        public static string DecryptionPirasanaSquare(string[] decryptionArr)
+        public static string DecryptionPirasanaSquare(DecryptionResult decryptionResult)
         {
             var dictionary = new Dictionary<double, string>();
             double min = int.MaxValue;
@@ -52,17 +52,18 @@ namespace CryptographyLibrary.CaesarCipher
 
             for (int i = 0; i < 32; i++)
             {
-                double pirasanaSquare = CaesarCipherAnalysis.ChiSquaredTest(decryptionArr[i]);
-                dictionary.Add(pirasanaSquare, decryptionArr[i]);
+                var pirasanaSquare = CaesarCipherAnalysis.ChiSquaredTest(decryptionResult.text[i]);
+                dictionary.Add(pirasanaSquare, decryptionResult.text[i]);
 
                 if (pirasanaSquare < min)
                 {
-                    keyPirasanaSquare = i + 1;
+                    keyPirasanaSquare = decryptionResult.key[i];
                     min = pirasanaSquare;
                 }
+                
             }
-
             return $"для ключа {keyPirasanaSquare}: " + dictionary[min];
+
         }
     }
 }

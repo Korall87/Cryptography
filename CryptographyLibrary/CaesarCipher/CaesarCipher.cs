@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,41 +10,66 @@ namespace CryptographyLibrary.CaesarCipher
 {
     public class CaesarCipher
     {
-        public string EncryptedText { get; set; }
-        public int key { get; set; }
-        public string expandedText { get; set; }
-        public string decryptedText { get; set; }
-        public string[] decryptionArr { get; set; }
-        public string Encrypt(string input, int shift)
-        {
-            EncryptedText = input; // проверить текст в кодировке юникод, 1040 до 1103, ?еще знаки припинания пробел?
-            key = shift; // проверка на int               
-            return expandedText = caesarEncryptionAlgorithm(EncryptedText, key);
+        public string encryptedText { get ; private set; }
+        public int key { get; private set; }
+        public string expandedText { get; private set; }
+        public string decryptedText { get; private set; }
 
+        public DecryptionResult decryptionResult;
+
+        /// <summary>
+        /// Для шифрования и расшифрования
+        /// </summary>
+        /// <param name="EncryptedText"></param>
+        /// <param name="key"></param>
+        public CaesarCipher(string encryptedText, int key )
+        {
+            this.encryptedText = encryptedText;
+            this.key = key;
         }
 
-        // переписать метод, если у нас не вызывался метод Encrypt
-        public string Decipher(string text = null)
+        /// <summary>
+        /// Для дешифрования
+        /// </summary>
+        /// <param name="expandedText"></param>
+        public CaesarCipher(string expandedText)
         {
-           return text == null ? 
-                decryptedText = caesarEncryptionAlgorithm(expandedText, -key) :
-                decryptedText = caesarEncryptionAlgorithm(text, -key);             
+            this.expandedText = expandedText;
         }
 
-        public string[] Decryption(string text = null)
+
+        public string Encrypt()
+            => expandedText = caesarEncryptionAlgorithm(encryptedText, key);
+
+
+        public string Decipher()
         {
             if (expandedText == null)
             {
-                throw new ArgumentException("Сначало надо указать зашифрованный текст");
+                this.expandedText = encryptedText;
             }
+            return decryptedText = caesarEncryptionAlgorithm(expandedText, -key);   
+            
+        }
+                      
 
-            string[] result = new string[32];
+        public DecryptionResult Decryption()
+        {            
+            var resultText = new string[32];
+            var resultKey = new int[32];
 
             for (int i = 0; i < 32; i++)
             {
-                result[i] = $"{caesarEncryptionAlgorithm(expandedText, -(i + 1))}";
+                resultText[i] = $"{caesarEncryptionAlgorithm(expandedText, - (i + 1))}";
+                resultKey[i] = i + 1;
             }
-            return decryptionArr = result;
+
+            return decryptionResult =  new DecryptionResult
+            {
+                text = resultText,
+                key = resultKey
+            };
+            
         }
 
         private string caesarEncryptionAlgorithm(string input, int shift)

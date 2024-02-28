@@ -34,8 +34,8 @@ namespace ConsoleTestLibrary
             Console.WriteLine(CaesarCipherAnalysis.ChiSquaredTest(caesarCipher1.decryptedText));
 
             //Дешифрование с помощью квадрата Пирсена
-            Console.WriteLine(CaesarCipherAnalysis.DecryptionPirasanaSquare(caesarCipher1.Decryption()));
-            Console.WriteLine(CaesarCipherAnalysis.DecryptionPirasanaSquare(caesarCipher2.Decryption()));
+            Console.WriteLine(CaesarCipherAnalysis.BruteForceDecryptionPearsonSquare(caesarCipher1.Decryption()));
+            Console.WriteLine(CaesarCipherAnalysis.BruteForceDecryptionPearsonSquare(caesarCipher2.Decryption()));
 
 
             Console.ReadLine();

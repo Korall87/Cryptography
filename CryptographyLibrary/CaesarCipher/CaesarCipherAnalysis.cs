@@ -44,7 +44,7 @@ namespace CryptographyLibrary.CaesarCipher
 
         }
 
-        public static string DecryptionPirasanaSquare(DecryptionResult decryptionResult)
+        public static string BruteForceDecryptionPearsonSquare(DecryptionResult decryptionResult)
         {
             var dictionary = new Dictionary<double, string>();
             double min = int.MaxValue;
@@ -64,6 +64,11 @@ namespace CryptographyLibrary.CaesarCipher
             }
             return $"для ключа {keyPirasanaSquare}: " + dictionary[min];
 
+        }
+
+        public static string СalculationDecryptionPearsonSquare(string text)
+        {
+            return "надо бы написать";
         }
     }
 }

@@ -14,7 +14,6 @@ namespace CryptographyLibrary.CaesarCipher
         public string expandedText { get; set; }
         public string decryptedText { get; set; }
         public string[] decryptionArr { get; set; }
-
         public string Encrypt(string input, int shift)
         {
             EncryptedText = input; // проверить текст в кодировке юникод, 1040 до 1103, ?еще знаки припинания пробел?
@@ -24,14 +23,20 @@ namespace CryptographyLibrary.CaesarCipher
         }
 
         // переписать метод, если у нас не вызывался метод Encrypt
-        public string Decipher()
+        public string Decipher(string text = null)
         {
-            return decryptedText = caesarEncryptionAlgorithm(expandedText, -key);
-
+           return text == null ? 
+                decryptedText = caesarEncryptionAlgorithm(expandedText, -key) :
+                decryptedText = caesarEncryptionAlgorithm(text, -key);             
         }
 
-        public string[] Decryption()
+        public string[] Decryption(string text = null)
         {
+            if (expandedText == null)
+            {
+                throw new ArgumentException("Сначало надо указать зашифрованный текст");
+            }
+
             string[] result = new string[32];
 
             for (int i = 0; i < 32; i++)
@@ -39,36 +44,6 @@ namespace CryptographyLibrary.CaesarCipher
                 result[i] = $"{caesarEncryptionAlgorithm(expandedText, -(i + 1))}";
             }
             return decryptionArr = result;
-        }
-
-        /// <summary>
-        /// Автоматически подбирает ключ для рассшифровки 
-        /// </summary>
-        /// <returns></returns>
-        public string DecryptionPirasanaSquare()
-        {
-            if (decryptionArr == null)
-            {
-                Decryption();
-            }
-
-            var dictionary = new Dictionary<double, string>();
-            double min = int.MaxValue;
-            int keyPirasanaSquare = 0;
-
-            for (int i = 0; i < 32; i++)
-            {
-                double pirasanaSquare = CaesarCipherAnalysis.ChiSquaredTest(decryptionArr[i]);
-                dictionary.Add(pirasanaSquare, decryptionArr[i]);
-                
-                if (pirasanaSquare < min)
-                {
-                    keyPirasanaSquare = i + 1;
-                    min = pirasanaSquare;
-                }
-            }
-                                
-            return  $"для ключа {keyPirasanaSquare}: " +dictionary[min];
         }
 
         private string caesarEncryptionAlgorithm(string input, int shift)

@@ -48,9 +48,9 @@ namespace TestLibrary
 
             Assert.NotNull(decryptionArr);
             Assert.Equal(32, decryptionArr.Length);
-            Assert.Equal("key = 1 : аАоОяЯ", decryptionArr[0]);
-            Assert.Equal("key = 2 : яЯнНюЮ", decryptionArr[1]);
-            Assert.Equal("key = 3 : юЮмМэЭ", decryptionArr[2]);
+            Assert.Equal("аАоОяЯ", decryptionArr[0]);
+            Assert.Equal("яЯнНюЮ", decryptionArr[1]);
+            Assert.Equal("юЮмМэЭ", decryptionArr[2]);
             //доделать https://planetcalc.ru/1434/
         }
     }

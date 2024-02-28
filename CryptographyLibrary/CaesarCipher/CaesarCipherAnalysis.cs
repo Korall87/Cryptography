@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CryptographyLibrary.CaesarCipher
-{
+{  
     public static class CaesarCipherAnalysis
     {
         // я хз как это работает, но вроде работает 
@@ -42,6 +42,27 @@ namespace CryptographyLibrary.CaesarCipher
             }
             return chiSquared;
 
+        }
+
+        public static string DecryptionPirasanaSquare(string[] decryptionArr)
+        {
+            var dictionary = new Dictionary<double, string>();
+            double min = int.MaxValue;
+            int keyPirasanaSquare = 0;
+
+            for (int i = 0; i < 32; i++)
+            {
+                double pirasanaSquare = CaesarCipherAnalysis.ChiSquaredTest(decryptionArr[i]);
+                dictionary.Add(pirasanaSquare, decryptionArr[i]);
+
+                if (pirasanaSquare < min)
+                {
+                    keyPirasanaSquare = i + 1;
+                    min = pirasanaSquare;
+                }
+            }
+
+            return $"для ключа {keyPirasanaSquare}: " + dictionary[min];
         }
     }
 }

@@ -26,7 +26,9 @@ namespace ConsoleTestLibrary
 
             //Console.WriteLine($"Значение хи-квадрат {CaesarCipherAnalysis.ChiSquaredTest(ceasarCipher.EncryptedText)}");
             Console.WriteLine( "======================================================================================================");
-            Console.WriteLine($"Возможный вариант рассшифровки: {ceasarCipher.DecryptionPirasanaSquare()}"  );
+            
+            Console.WriteLine($"Возможный вариант рассшифровки: {CaesarCipherAnalysis.DecryptionPirasanaSquare(ceasarCipher.Decryption())}"  );
+
 
             Console.ReadLine();
         }

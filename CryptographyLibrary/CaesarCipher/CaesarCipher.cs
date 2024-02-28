@@ -23,6 +23,7 @@ namespace CryptographyLibrary.CaesarCipher
 
         }
 
+        // переписать метод, если у нас не вызывался метод Encrypt
         public string Decipher()
         {
             return decryptedText = caesarEncryptionAlgorithm(expandedText, -key);
@@ -35,15 +36,39 @@ namespace CryptographyLibrary.CaesarCipher
 
             for (int i = 0; i < 32; i++)
             {
-                result[i] = $"key = {i + 1} : {caesarEncryptionAlgorithm(expandedText, -(i + 1))}";
+                result[i] = $"{caesarEncryptionAlgorithm(expandedText, -(i + 1))}";
             }
             return decryptionArr = result;
         }
 
-        public string[] DecryptionPirasanaSquare()
+        /// <summary>
+        /// Автоматически подбирает ключ для рассшифровки 
+        /// </summary>
+        /// <returns></returns>
+        public string DecryptionPirasanaSquare()
         {
-            
-            return new string[2];
+            if (decryptionArr == null)
+            {
+                Decryption();
+            }
+
+            var dictionary = new Dictionary<double, string>();
+            double min = int.MaxValue;
+            int keyPirasanaSquare = 0;
+
+            for (int i = 0; i < 32; i++)
+            {
+                double pirasanaSquare = CaesarCipherAnalysis.ChiSquaredTest(decryptionArr[i]);
+                dictionary.Add(pirasanaSquare, decryptionArr[i]);
+                
+                if (pirasanaSquare < min)
+                {
+                    keyPirasanaSquare = i + 1;
+                    min = pirasanaSquare;
+                }
+            }
+                                
+            return  $"для ключа {keyPirasanaSquare}: " +dictionary[min];
         }
 
         private string caesarEncryptionAlgorithm(string input, int shift)

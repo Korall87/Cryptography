@@ -9,8 +9,8 @@ namespace ConsoleTestLibrary
         {
             var ceasarCipher = new CaesarCipher();
 
-            int shift = 5;
-            string originalText = "Привет, как дела?";
+            int shift = 1;
+            string originalText = "аАоОяЯ";
 
             ceasarCipher.Encrypt(originalText, shift);    
             Console.WriteLine($"Текст: {ceasarCipher.EncryptedText}"); 

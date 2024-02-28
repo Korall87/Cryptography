@@ -29,7 +29,7 @@ namespace CryptographyLibrary.CaesarCipher
 
         }
 
-        public string[] Decryption()// переписать нормально, должен что-то возвращять
+        public string[] Decryption()
         {
             string[] result = new string[32];
 
@@ -38,6 +38,12 @@ namespace CryptographyLibrary.CaesarCipher
                 result[i] = $"key = {i + 1} : {caesarEncryptionAlgorithm(expandedText, -(i + 1))}";
             }
             return decryptionArr = result;
+        }
+
+        public string[] DecryptionPirasanaSquare()
+        {
+            
+            return new string[2];
         }
 
         private string caesarEncryptionAlgorithm(string input, int shift)

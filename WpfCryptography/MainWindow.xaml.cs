@@ -28,12 +28,11 @@ namespace WpfCryptography
 
             private void EncryptButton_Click(object sender, RoutedEventArgs e)
             {
-                var ceasarCipher = new CaesarCipher();
-
                 string inputText = InputTextBox.Text;
                 int shift = Convert.ToInt32(ShiftTextBox.Text);
 
-                string encryptedText = ceasarCipher.Encrypt(inputText, shift);
+                var ceasarCipher = new CaesarCipher(inputText, shift);
+                string encryptedText = ceasarCipher.Encrypt();
                 OutputTextBox.Text = encryptedText;
             }           
     }  

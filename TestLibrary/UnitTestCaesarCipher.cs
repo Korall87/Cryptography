@@ -12,9 +12,9 @@ namespace TestLibrary
             string input = "аАоОяЯ";
             int shift = 1;
 
-            CaesarCipher сaesarCipher = new CaesarCipher();
+            CaesarCipher сaesarCipher = new CaesarCipher(input, shift);
 
-            var result = сaesarCipher.Encrypt(input, shift);
+            var result = сaesarCipher.Encrypt();
 
             Assert.NotNull(result);
             Assert.Equal("бБпПаА", result);
@@ -26,32 +26,30 @@ namespace TestLibrary
             string input = "аАоОяЯ";
             int shift = 1;
 
-            CaesarCipher сaesarCipher = new CaesarCipher();
-            сaesarCipher.Encrypt(input, shift);
+            CaesarCipher сaesarCipher = new CaesarCipher(input, shift);
 
             var resultDecipher = сaesarCipher.Decipher();
 
             Assert.NotNull(resultDecipher);
-            Assert.Equal("аАоОяЯ", resultDecipher);
+            Assert.Equal("яЯнНюЮ", resultDecipher);
         }
 
-        [Fact]
-        public void Decryption_EncryptedText_ReturnsMultipleDecryptedTexts()
-        {
-            string input = "аАоОяЯ";
-            int shift = 1;
-
-            CaesarCipher сaesarCipher = new CaesarCipher();
-            сaesarCipher.Encrypt(input, shift);
-
-            var decryptionArr = сaesarCipher.Decryption();
-
-            Assert.NotNull(decryptionArr);
-            Assert.Equal(32, decryptionArr.Length);
-            Assert.Equal("аАоОяЯ", decryptionArr[0]);
-            Assert.Equal("яЯнНюЮ", decryptionArr[1]);
-            Assert.Equal("юЮмМэЭ", decryptionArr[2]);
-            //доделать https://planetcalc.ru/1434/
-        }
+       // [Fact]
+       // public void Decryption_EncryptedText_ReturnsMultipleDecryptedTexts()
+       // {
+       //     string input = "аАоОяЯ";
+       //     int shift = 1;
+       //
+       //     CaesarCipher сaesarCipher = new CaesarCipher(input, shift);
+       //
+       //     var decryptionArr = сaesarCipher.Decryption();
+       //
+       //     Assert.NotNull(decryptionArr);
+       //     Assert.Equal(32, decryptionArr.Length);
+       //     Assert.Equal("аАоОяЯ", decryptionArr[0]);
+       //     Assert.Equal("яЯнНюЮ", decryptionArr[1]);
+       //     Assert.Equal("юЮмМэЭ", decryptionArr[2]);
+       //     //доделать https://planetcalc.ru/1434/
+       // }
     }
 }

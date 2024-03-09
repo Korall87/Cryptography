@@ -31,9 +31,169 @@ namespace WpfCryptography
                 string inputText = InputTextBox.Text;
                 int shift = Convert.ToInt32(ShiftTextBox.Text);
 
-                var ceasarCipher = new CaesarCipher(inputText, shift);
-                string encryptedText = ceasarCipher.Encrypt();
-                OutputTextBox.Text = encryptedText;
-            }           
-    }  
-}
+            var message = File.ReadAllText(messagePath);
+            var key = possible_key.Text;
+
+            if (message.Length != 0) // есть ли текст в файле? 
+            {
+                if (int.TryParse(key, out int keyInt) && keyInt > 0 && keyInt <= 50) // коректный ли ключ? 
+                {
+                    string encodedMessage = caesarCipher.Encrypt(message, keyInt); // шифрование                                    
+                    encodedText.Text = encodedMessage;
+
+                    File.WriteAllText(encodedMesssage, string.Empty);
+                    using (StreamWriter sw = File.AppendText(encodedMesssage))
+                    {
+                        sw.WriteLine(encodedMessage);
+                    }
+
+                }
+
+                //дешифрование
+                private void getDecode_Click(object sender, RoutedEventArgs e)
+                {
+                    var message = File.ReadAllText(encodedMesssage); // текст который надо дешифровать
+                    decodedText.Text = " ";
+
+                    if (message.Length != 0) // есть ли текст в файле? 
+                    {
+                        var result = ConversionString.OutputData(caesarCipher.Decryption(message));
+                        foreach (var item in result)
+                        {
+                            decodedText.Text += item + "\n\n";
+                        }
+
+                        using (StreamWriter sw = File.AppendText(cryptAnalisys))
+                        {
+                            sw.WriteLine(decodedText.Text);
+                        }
+
+
+                        //дешифрование
+                        private void getDecode_Click(object sender, RoutedEventArgs e)
+                        {
+                            var message = File.ReadAllText(encodedMesssage);
+                            decodedText.Text = "";
+
+                            var result = ConversionString.OutputData(caesarCipher.Decryption(message));
+                            foreach (var item in result)
+                            {
+                                decodedText.Text += item + "\n\n";
+                            }
+
+                            using (StreamWriter sw = File.AppendText(cryptAnalisys))
+                            {
+                                sw.WriteLine(decodedText.Text);
+                            }
+
+                        }
+            else
+                        {
+                            MessageBox.Show($"Пустой файл {encodedMesssage}, рекомендуем сначала зашифровать текст.");
+                        }
+                    }
+                    // 
+                    //криптоанализ 
+                    private void Cryptanalisys_Click(object sender, RoutedEventArgs e)
+                    {
+                        var strArr = caesarCipher.decryptionResult; // массив текста для которого надо посчитать квадрат пирсана 
+                        cryptanalisysText.Text = "";
+
+                        if (strArr?.Length != null)
+                        {
+                            for (int i = 0; i < strArr.Length; i++)
+                            {
+                                cryptanalisysText.Text += $"key = {i + 1}: {Math.Round(CaesarCipherAnalysis.ChiSquaredTest(strArr[i]), 3)} \n\n";
+                            }
+
+                            using (StreamWriter sw = File.AppendText(cryptAnalisys))
+                            {
+                                sw.WriteLine(cryptanalisysText.Text);
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Пустой файл {encodedMesssage}, рекомендуем сначала декодировать текст.");// зачем изменить это
+                        }
+                    }
+
+                    //Вывод текста 
+                    private void getDefaultMessage()
+                    {
+                        string message = File.ReadAllText(messagePath);
+                    }
+            else
+                    {
+                        MessageBox.Show($"Пустой файл {encodedMesssage}, рекомендуем сначала зашифровать текст.");
+                    }
+                }
+
+            }
+
+
+            //дешифрование
+            private void getDecode_Click(object sender, RoutedEventArgs e)
+            {
+                var message = File.ReadAllText(encodedMesssage); // текст который надо дешифровать
+                decodedText.Text = " ";
+
+                if (message.Length != 0) // есть ли текст в файле? 
+                {
+                    var result = ConversionString.OutputData(caesarCipher.Decryption(message));
+                    foreach (var item in result)
+                    {
+                        decodedText.Text += item + "\n\n";
+                    }
+
+                    using (StreamWriter sw = File.AppendText(cryptAnalisys))
+                    {
+                        sw.WriteLine(decodedText.Text);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show($"Пустой файл {encodedMesssage}, рекомендуем сначала зашифровать текст.");
+                }
+            }
+            // 
+            //криптоанализ 
+            private void Cryptanalisys_Click(object sender, RoutedEventArgs e)
+            {
+                var strArr = caesarCipher.decryptionResult; // массив текста для которого надо посчитать квадрат пирсана 
+                cryptanalisysText.Text = "";
+
+                if (strArr?.Length != null)
+                {
+                    for (int i = 0; i < strArr.Length; i++)
+                    {
+                        cryptanalisysText.Text += $"key = {i + 1}: {Math.Round(CaesarCipherAnalysis.ChiSquaredTest(strArr[i]), 3)} \n\n";
+                    }
+
+                    using (StreamWriter sw = File.AppendText(cryptAnalisys))
+                    {
+                        sw.WriteLine(cryptanalisysText.Text);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show($"Пустой файл {encodedMesssage}, рекомендуем сначала декодировать текст.");// зачем изменить это
+                }
+            }
+
+            //Вывод текста 
+            private void getDefaultMessage()
+            {
+                string message = File.ReadAllText(messagePath);
+
+                if (message.Length != 0)
+                {
+                    DefaultMessage.Text = message;
+                }
+            }
+
+        }
+    }
+

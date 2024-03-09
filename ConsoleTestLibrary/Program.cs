@@ -11,9 +11,8 @@ namespace ConsoleTestLibrary
         {
             var portCipher = new PortCipher();
 
-            portCipher.method("НЕТ", "КЛЮЧ");
-            portCipher.method("нет", "ключ");
-
+            Console.WriteLine(portCipher.EncryptionDecryption("НЕТ", "КЛЮЧ"));
+            Console.WriteLine(portCipher.EncryptionDecryption("нет", "ключ"));
 
             Console.ReadLine();
         }

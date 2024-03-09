@@ -39,8 +39,10 @@ namespace CryptographyLibrary
 
         }
 
-        public void method(string text, string keys)
+        public string EncryptionDecryption(string text, string keys)
         {
+            StringBuilder stringBuilder = new StringBuilder();
+
             for (int i = 0; i < text.Length; i++)
             {
                 int offset = char.IsLower(text[i]) ? 1072 : 1040;
@@ -48,8 +50,11 @@ namespace CryptographyLibrary
 
                 offset = char.IsLower(keys[i % keys.Length]) ? 1072 : 1040;
                 int key = keys[i % keys.Length] - offset;
-                Console.WriteLine((char)(CharacterReplacement(ch, key)+offset));
+
+                stringBuilder.Append((char)(CharacterReplacement(ch, key)+offset));
             }
+
+            return stringBuilder.ToString();
         }
     }
 }

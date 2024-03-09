@@ -5,10 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CryptographyLibrary.CaesarCipher
-{  
+{
     public static class CaesarCipherAnalysis
     {
-        // я хз как это работает, но вроде работает 
         public static double ChiSquaredTest(string text)
         {
             string alphabet = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
@@ -42,33 +41,6 @@ namespace CryptographyLibrary.CaesarCipher
             }
             return chiSquared;
 
-        }
-
-        public static string BruteForceDecryptionPearsonSquare(DecryptionResult decryptionResult)
-        {
-            var dictionary = new Dictionary<double, string>();
-            double min = int.MaxValue;
-            int keyPirasanaSquare = 0;
-
-            for (int i = 0; i < 32; i++)
-            {
-                var pirasanaSquare = CaesarCipherAnalysis.ChiSquaredTest(decryptionResult.text[i]);
-                dictionary.Add(pirasanaSquare, decryptionResult.text[i]);
-
-                if (pirasanaSquare < min)
-                {
-                    keyPirasanaSquare = decryptionResult.key[i];
-                    min = pirasanaSquare;
-                }
-                
-            }
-            return $"для ключа {keyPirasanaSquare}: " + dictionary[min];
-
-        }
-
-        public static string СalculationDecryptionPearsonSquare(string text)
-        {
-            return "надо бы написать";
         }
     }
 }

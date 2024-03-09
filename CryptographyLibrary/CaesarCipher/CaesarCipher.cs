@@ -4,72 +4,34 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CryptographyLibrary.CaesarCipher
 {
     public class CaesarCipher
     {
-        public string encryptedText { get ; private set; }
-        public int key { get; private set; }
-        public string expandedText { get; private set; }
-        public string decryptedText { get; private set; }
+        public string[] decryptionResult;
 
-        public DecryptionResult decryptionResult;
-
-        /// <summary>
-        /// Для шифрования и расшифрования
-        /// </summary>
-        /// <param name="EncryptedText"></param>
-        /// <param name="key"></param>
-        public CaesarCipher(string encryptedText, int key )
+        public string Encrypt(string text, int k)
         {
-            this.encryptedText = encryptedText;
-            this.key = key;
+            return caesarEncryptionAlgorithm(text, k);
         }
 
-        /// <summary>
-        /// Для дешифрования
-        /// </summary>
-        /// <param name="expandedText"></param>
-        public CaesarCipher(string expandedText)
+        public string Decipher(string text, int k)
         {
-            this.expandedText = expandedText;
+            return caesarEncryptionAlgorithm(text, -k);
         }
 
-
-        public string Encrypt()
-            => expandedText = caesarEncryptionAlgorithm(encryptedText, key);
-
-
-        public string Decipher()
+        public string[] Decryption(string text)
         {
-            if (expandedText == null)
-            {
-                this.expandedText = encryptedText;
-            }
-            return decryptedText = caesarEncryptionAlgorithm(expandedText, -key);   
-            
-        }
-                      
-
-        public DecryptionResult Decryption()
-        {            
             var resultText = new string[32];
-            var resultKey = new int[32];
 
             for (int i = 0; i < 32; i++)
             {
-                resultText[i] = $"{caesarEncryptionAlgorithm(expandedText, - (i + 1))}";
-                resultKey[i] = i + 1;
+                resultText[i] = caesarEncryptionAlgorithm(text, -(i + 1));
             }
 
-            return decryptionResult =  new DecryptionResult
-            {
-                text = resultText,
-                key = resultKey
-            };
-            
+            return decryptionResult = resultText;
         }
 
         private string caesarEncryptionAlgorithm(string input, int shift)
@@ -86,6 +48,7 @@ namespace CryptographyLibrary.CaesarCipher
                     int offset = char.IsLower(c) ? 1072 : 1040;
 
                     int encryptedChar = ((c + shift - offset) % 32 + 32) % 32 + offset;
+                    //int encryptedChar = (c + shift - offset) % 32 ) + offset;
 
                     encryptedText.Append((char)encryptedChar);
                 }

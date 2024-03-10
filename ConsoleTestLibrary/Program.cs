@@ -14,6 +14,12 @@ namespace ConsoleTestLibrary
             Console.WriteLine(portCipher.EncryptionDecryption("НЕТ", "КЛЮЧ"));
             Console.WriteLine(portCipher.EncryptionDecryption("нет", "ключ"));
 
+            Console.WriteLine(portCipher.EncryptionDecryption("НЕТНЕТНЕТНЕТНЕТНЕТ", "КЛЮЧ"));
+            Console.WriteLine(portCipher.EncryptionDecryption("нетнетнетнетнетнет", "ключ"));
+
+            Console.WriteLine(portCipher.EncryptionDecryption("НеТнетнетнетнетнет", "кЛЮч"));
+
+
             Console.ReadLine();
         }
     }

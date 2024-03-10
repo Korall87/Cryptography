@@ -92,7 +92,7 @@ namespace WpfCryptography
         private void getDecode_Click(object sender, RoutedEventArgs e)
         {
             var message = File.ReadAllText(encodedMesssage); // текст который надо дешифровать
-            decodedText.Text = " ";
+            decodedText.Text = "";
 
             if (message.Length != 0) // есть ли текст в файле? 
             {
